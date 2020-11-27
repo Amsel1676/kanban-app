@@ -22,5 +22,27 @@ describe('KbnButton', () => {
                 })
             })
         })
+        describe('disabled', () => {
+            describe('デフォルト', () => {
+                test('disableのデフォルト値がfalseであること', () => {
+                    const { getByRole } = render(<KbnButton />)
+                    expect(getByRole('button')).not.toBeDisabled()
+                })
+            })
+
+            describe('disabled=false', () => {
+                test('disabledがtrueのボタンであること', () => {
+                    const { getByRole } = render(<KbnButton disabled={false} />)
+                    expect(getByRole('button')).not.toBeDisabled()
+                })
+            })
+
+            describe('disabled=true', () => {
+                test('disabledがtrueのボタンであること', () => {
+                    const { getByRole } = render(<KbnButton disabled={true} />)
+                    expect(getByRole('button')).toBeDisabled()
+                })
+            })
+        })
     })
 })

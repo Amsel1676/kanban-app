@@ -1,21 +1,18 @@
 import React from 'react';
 
-export interface Props {
-  type?: 'text' | 'button'
-}
-
-function KbnButton({ type = 'button' }: Props) {
-  const classes = (type: any) => {
+function KbnButton({ type = 'button', disabled = false }: KbnButtonProps) {
+  const classes = (type: 'text' | 'button') => {
     return type === 'button' ? 'kbn-button' : 'kbn-button-text'
   }
 
   return (
-    <button type='button' className={classes(type)}>test</button>
+    <button type='button' className={classes(type)} disabled={disabled}>test</button>
   );
 }
 
-KbnButton.defaultProps = {
-  type: 'button'
+export interface KbnButtonProps {
+  type?: 'text' | 'button'
+  disabled?: boolean
 }
 
 export default KbnButton;
