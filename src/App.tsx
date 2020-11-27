@@ -1,8 +1,9 @@
 import React from 'react';
+import KbnButton from './components/atoms/KbnButton'
 
 function App() {
   return (
-    <button>test</button>
+    <KbnButton type="text"></KbnButton>
   );
 }
 
