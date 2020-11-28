@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from "@testing-library/react"
 import KbnButton from "./KbnButton"
-import { debug } from 'console'
 
 describe('KbnButton', () => {
     describe('プロパティ', () => {
@@ -41,6 +40,21 @@ describe('KbnButton', () => {
                 test('disabledがtrueのボタンであること', () => {
                     const { getByRole } = render(<KbnButton disabled={true} />)
                     expect(getByRole('button')).toBeDisabled()
+                })
+            })
+        })
+        describe('value', () => {
+            describe('デフォルト', () => {
+                test('buttonのテキストが空白であること', () => {
+                    const { getByRole } = render(<KbnButton />)
+                    expect(getByRole('button')).toHaveTextContent('')
+                })
+            })
+
+            describe('value=test', () => {
+                test('buttonのテキストがtestであること', () => {
+                    const { getByRole } = render(<KbnButton value='test' />)
+                    expect(getByRole('button')).toHaveTextContent('test')
                 })
             })
         })
