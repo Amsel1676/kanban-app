@@ -1,12 +1,13 @@
 import React from 'react';
+import styles from './KbnButton.module.css'
 
 function KbnButton({ type = 'button', disabled = false, value = '' }: KbnButtonProps) {
   const classes = (type: 'text' | 'button') => {
-    return type === 'button' ? 'kbn-button' : 'kbn-button-text'
+    return type === 'button' ? 'kbnButton' : 'kbnButtonText'
   }
 
   return (
-    <button type='button' className={classes(type)} disabled={disabled}>
+    <button type='button' className={styles[classes(type)]} disabled={disabled}>
       {value}
     </button>
   );
