@@ -1,9 +1,9 @@
 import React from 'react';
-import KbnButton from './components/atoms/KbnButton'
+import KbnLoginForm from './components/molecules/KbnLoginForm';
 
 function App() {
   return (
-    <KbnButton type="text" value='test'></KbnButton>
+    <KbnLoginForm />
   );
 }
 
