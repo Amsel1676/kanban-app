@@ -15,13 +15,21 @@ function KbnLoginForm() {
         setPasswordValue(event.target.value)
     }
 
+    const emailValidation = (value: string) => {
+        return REGAX_EMAIL.test(value) && !value
+    }
+
+    const passwordValidation = (value: string) => {
+        return !value
+    }
+
     return (
         <React.Fragment>
             <div className={styles.loginForm}>
                 <label htmlFor="email">Email:</label>
-                <input id="email" type="text" value={emailForm} onChange={handleChangeEmailForm} />
+                <input id="email" type="text" value={emailForm} onChange={handleChangeEmailForm} required />
                 <label htmlFor="password">Password:</label>
-                <input id="password" type="password" value={passwordForm} onChange={handleChangePasswordForm} />
+                <input id="password" type="password" value={passwordForm} onChange={handleChangePasswordForm} required />
             </div>
             <KbnButton value="Login" />
         </React.Fragment>
