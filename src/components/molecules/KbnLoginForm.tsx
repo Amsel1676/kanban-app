@@ -16,11 +16,21 @@ function KbnLoginForm() {
     }
 
     const emailValidation = (value: string) => {
-        return REGAX_EMAIL.test(value) && !value
+        return REGAX_EMAIL.test(value) && value !== ''
     }
 
     const passwordValidation = (value: string) => {
-        return !value
+        return value !== ''
+    }
+
+    const handleClickLogin = () => {
+        if(emailValidation(emailForm) && passwordValidation(passwordForm)){
+            console.log("OK")
+        }else{
+            console.log("NG")
+            console.log(emailForm)
+            console.log(passwordForm)
+        }
     }
 
     return (
@@ -31,7 +41,7 @@ function KbnLoginForm() {
                 <label htmlFor="password">Password:</label>
                 <input id="password" type="password" value={passwordForm} onChange={handleChangePasswordForm} required />
             </div>
-            <KbnButton value="Login" />
+            <KbnButton value="Login" onClick={handleClickLogin} />
         </React.Fragment>
     )
 }
