@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import KbnButton from '../atoms/KbnButton';
 import styles from './KbnLoginForm.module.css';
 
-function KbnLoginForm() {
+function KbnLoginForm(props: KbnLoginFormProps) {
     const [emailFormValue, setEmailValue] = useState('');
     const [passwordFormValue, setPasswordValue] = useState('');
     const REGAX_EMAIL = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -27,16 +27,6 @@ function KbnLoginForm() {
         return required(value)
     }
 
-    const handleClickLogin = () => {
-        if(emailValidation(emailFormValue) && passwordValidation(passwordFormValue)){
-            console.log("OK")
-        }else{
-            console.log("NG")
-            console.log(emailFormValue)
-            console.log(passwordFormValue)
-        }
-    }
-
     return (
         <React.Fragment>
             <div className={styles.loginForm}>
@@ -59,9 +49,14 @@ function KbnLoginForm() {
                     }
                 </div>
             </div>
-            <KbnButton value="Login" onClick={handleClickLogin} />
+            <KbnButton value="Login" onClick={props.onClick} />
         </React.Fragment>
     )
 }
+
+export interface KbnLoginFormProps {
+    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+}
+  
 
 export default KbnLoginForm
