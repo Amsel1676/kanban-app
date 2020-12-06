@@ -1,9 +1,9 @@
 import React from 'react';
-import KbnLoginForm from './components/molecules/KbnLoginForm';
+import KbnLoginView from './components/templates/KbnLoginView';
 
 function App() {
   return (
-    <KbnLoginForm />
+    <KbnLoginView />
   );
 }
 
