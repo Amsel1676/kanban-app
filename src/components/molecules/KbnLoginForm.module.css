@@ -19,9 +19,9 @@
 .loginForm ul li {
     font-size: 0.5em;
 }
-.validation-errors {
+.validationErrors {
     height: 32px;
 }
-.form-actions p {
+.formActions p {
     font-size: 0.5em;
 }
