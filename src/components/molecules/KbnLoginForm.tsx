@@ -15,12 +15,16 @@ function KbnLoginForm() {
         setPasswordValue(event.target.value)
     }
 
+    const required = (value: string) => {
+        return !!value.trim()
+    }
+
     const emailValidation = (value: string) => {
-        return REGAX_EMAIL.test(value) && value !== ''
+        return REGAX_EMAIL.test(value) && required(value)
     }
 
     const passwordValidation = (value: string) => {
-        return value !== ''
+        return required(value)
     }
 
     const handleClickLogin = () => {
